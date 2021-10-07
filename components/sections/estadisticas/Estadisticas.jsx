@@ -1,9 +1,11 @@
-import { Text,Container,useColorModeValue } from "@chakra-ui/react"
-import LineCharts from "../../../charts/LineCharts"
+import { Text,Container,useColorModeValue,Box } from "@chakra-ui/react"
+import BarChart from "../../charts/BarChart"
+import HorizontalBarChart from "../../charts/HorizontalBarChart"
+import PieChart from "../../charts/PieChart"
+
 
 
 export default function Estadisticas() {
-
 
     return (
         <div>
@@ -23,9 +25,17 @@ export default function Estadisticas() {
                 </Container>
             </div>
 
-
             <div>
-                <LineCharts/>
+                <PieChart/>
+                <div>
+                    <BarChart/>
+                </div>
+                <div>
+                    <HorizontalBarChart/>
+                </div>
+                <div>
+                    Hola
+                </div>
             </div>
         </div>
     )
