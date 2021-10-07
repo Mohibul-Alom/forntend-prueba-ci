@@ -3,6 +3,15 @@ import BarChart from "../../charts/BarChart"
 import HorizontalBarChart from "../../charts/HorizontalBarChart"
 import PieChart from "../../charts/PieChart"
 
+const barGraph = {
+    dataLabels: ['< 18 años', '18-39 años', '40-59 años', '59-79 años', '80 años >'],
+    barData: [92, 98, 97, 93, 76],
+}
+
+const barGraph2 = {
+    dataLabels: ['Diploma de escula secundaria','','','3 años de educacion superior','','','Más de 5 años de educación superior'],
+    barData: [90,95,97,99,100,101,99],
+}
 
 
 export default function Estadisticas() {
@@ -28,7 +37,10 @@ export default function Estadisticas() {
             <div>
                 <PieChart/>
                 <div>
-                    <BarChart/>
+                    <BarChart dataLabels={barGraph.dataLabels} barData={barGraph.barData} />
+                </div>
+                <div>
+                    <BarChart dataLabels={barGraph2.dataLabels} barData={barGraph2.barData} />
                 </div>
                 <div>
                     <HorizontalBarChart/>

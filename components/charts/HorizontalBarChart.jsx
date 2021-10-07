@@ -57,7 +57,7 @@ const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: 'right',
+      position: 'top',
     },
   },
 };
@@ -71,7 +71,6 @@ const HorizontalBarChart = () => (
         data={data} 
         options={options}
         height={400}
-        width={500}
     />
   </>
 );
