@@ -14,7 +14,7 @@ const barGraph2 = {
 }
 
 
-export default function Estadisticas() {
+export default function Statistics() {
 
     return (
         <div>

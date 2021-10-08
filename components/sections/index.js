@@ -1,13 +1,13 @@
-import Efectividad from "./efectividad/Efectividad";
-import Estadisticas from "./estadisticas/Estadisticas";
-import Objetivo from "./objetivo/Objetivo";
-import Prueba from "./prueba/Prueba";
-import Resultado from "./resultado/Resultado";
+import Performance from "./Performance/Performance";
+import Statistics from "./Statistics/Statistics";
+import Purpose from "./Purpose/Purpose";
+import Test from "./Test/Test";
+import Result from "./Result/Result";
 
 export {
-    Efectividad,
-    Estadisticas,
-    Objetivo,
-    Prueba,
-    Resultado,
+    Performance,
+    Statistics,
+    Purpose,
+    Test,
+    Result,
 }
