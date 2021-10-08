@@ -1,53 +1,77 @@
-import { Text,Container,useColorModeValue,Box } from "@chakra-ui/react"
+import { Text, Container, useColorModeValue, Box } from "@chakra-ui/react"
 import BarChart from "../../charts/BarChart"
 import HorizontalBarChart from "../../charts/HorizontalBarChart"
 import PieChart from "../../charts/PieChart"
 
-const barGraph = {
-    dataLabels: ['< 18 años', '18-39 años', '40-59 años', '59-79 años', '80 años >'],
-    barData: [92, 98, 97, 93, 76],
-}
 
-const barGraph2 = {
-    dataLabels: ['Diploma de escula secundaria','','','3 años de educacion superior','','','Más de 5 años de educación superior'],
-    barData: [90,95,97,99,100,101,99],
-}
+
+import en from "../../../utils/locale/sections/Statistics/en"
+import es from "../../../utils/locale/sections/Statistics/es"
+import fr from "../../../utils/locale/sections/Statistics/fr"
+
+import { useRouter } from 'next/router';
 
 
 export default function Statistics() {
+
+    const router = useRouter();
+    const { locale } = router;
+    let translate = en;
+
+    switch (locale) {
+        case "fr":
+            translate = en;
+            break;
+        case "es":
+            translate = es;
+            break;
+        default:
+            translate = en;
+            break;
+    }
+
+    const barGraph = {
+        dataLabels: ['< 18 años', '18-39 años', '40-59 años', '59-79 años', '80 años >'],
+        barData: [92, 98, 97, 93, 76],
+    }
+
+    const barGraph2 = {
+        dataLabels: ['Diploma de escula secundaria', '', '', '3 años de educacion superior', '', '', 'Más de 5 años de educación superior'],
+        barData: [90, 95, 97, 99, 100, 101, 99],
+    }
 
     return (
         <div>
             <div>
                 <Text
-                 fontSize="2xl"
-                 color={useColorModeValue("gray.700", "white")}
-                 fontWeight="700"
+                    fontSize="2xl"
+                    color={useColorModeValue("gray.700", "white")}
+                    fontWeight="700"
                 >
-                    Nuestas estadisticas
+                    {translate.title}
                 </Text>
                 <Container>
-                    Para cada resultado al pasar nuestra prueba de CI, se agrega información estadística, en la que todos los que son evaluados se clasifican de acuerdo con ciertos indicadores (población, grupo de edad, educación, campo de conocimiento).
+                    {translate.firstParagraph}
                 </Container>
                 <Container mt="2">
-                    Las estadísticas presentadas se forman a partir de la información recopilada a la fecha en todo el mundo. En el futuro continuaremos recibiendo estadísticas sobre cómo las personas deben pasar las pruebas y podremos actualizar los indicadores.
+                    {translate.secondParagraph}
                 </Container>
             </div>
 
             <div>
-                <PieChart/>
-                <div>
-                    <BarChart dataLabels={barGraph.dataLabels} barData={barGraph.barData} />
-                </div>
-                <div>
-                    <BarChart dataLabels={barGraph2.dataLabels} barData={barGraph2.barData} />
-                </div>
-                <div>
-                    <HorizontalBarChart/>
-                </div>
-                <div>
-                    Hola
-                </div>
+                <Box mt="6">
+                    <PieChart t={translate.chartGeneralandInter}/>
+                </Box>
+                <Box  mt="6">
+                    <BarChart t={translate.chartAgeGroup} barData={barGraph.barData} />
+                </Box>
+                <Box mt="6">
+                <BarChart t={translate.chartStudyLevel} barData={barGraph2.barData} />
+                    {/* <BarChart dataLabels={barGraph2.dataLabels} barData={barGraph2.barData} /> */}
+                </Box>
+                <Box mt="6">
+                    <HorizontalBarChart t={translate.chartStudyField} />
+                </Box>
             </div>
         </div>
     )

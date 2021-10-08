@@ -3,10 +3,10 @@ import {Performance, Statistics, Purpose, Test, Result} from '../sections'
 export default function HomeLayout() {
     return (
         <Flex direction="column">
-            <Test/>
+            {/* <Test/>
             <Purpose/>
             <Performance/>
-            <Result/>
+            <Result/> */}
             <Statistics/>
         </Flex>
     )

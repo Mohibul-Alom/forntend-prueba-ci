@@ -23,7 +23,6 @@ export default function Navbar() {
             translate = en;
             break;
     }
-    console.log(translate);
 
     const changeLanguage = (e) => {
         const locale = e.target.value;

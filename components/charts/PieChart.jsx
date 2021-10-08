@@ -1,6 +1,8 @@
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
 
+let translate;
+
 const data = {
     labels: [
         '- de 70',
@@ -34,10 +36,15 @@ const data = {
     }]
 };
 
-export default function PieChart() {
+export default function PieChart(props) {
+
+    if(props.t !==undefined) {
+        translate = Object.assign({}, props.t);
+    }
+
     return (
     <div>
-        <h1>Distribucion general y nivel internacional de las puntuaciones de CI</h1>
+        <h1>{translate.title}</h1>
         <Pie
             data={data}
             width={400}
